@@ -1,0 +1,38 @@
+pipeline {
+
+    agent any
+
+
+    stages {
+       /* stage ('GIT') {
+            steps {
+               echo "Getting Project from Git";
+                git branch: "main",
+                    url: "https://github.com/oumaimaD/tpAchat.git",
+                    credentialsId:'ouma';
+            }
+        }
+        */
+       stage("Build") {
+            steps {
+                sh "mvn -version"
+               /* sh "cd tpAchat"*/
+                sh "mvn clean install"
+            }
+        }
+
+        stage("Sonar") {
+            steps {
+                sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=11400857Dr"
+            }
+        }
+
+        stage("Nexus") {
+            steps {
+                sh "mvn deploy -DskipTests "
+            }
+        }
+
+
+
+}
