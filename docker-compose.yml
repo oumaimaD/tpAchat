@@ -18,7 +18,7 @@ services:
   spring_app:
     depends_on:
       - mysqldb
-    image: oumaD/achat-docker
+    image: oumad/achat-1
     ports:
       - 8089:8089
     restart: always
