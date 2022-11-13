@@ -25,8 +25,8 @@ public class OperateurServiceImplTest {
 		List<Operateur> operateurs = operateurService.retrieveAllOperateurs();
 		int expected = operateurs.size();
 		Operateur o = new Operateur();
-		o.setNom("Abidi");
-		o.setPrenom("Houssem");
+		o.setNom("ouma");
+		o.setPrenom("dridi");
 		o.setPassword("passwd");
 		Operateur savedOperateur= operateurService.addOperateur(o);
 		assertEquals(expected+1, operateurService.retrieveAllOperateurs().size());
