@@ -13,6 +13,20 @@ services:
 
        MYSQL_DATABASE: 'achat-db'
        MYSQL_ALLOW_EMPTY_PASSWORD: 1
+   sonarqube:
+      image: sonarqube:8.9.7-community
+      ports:
+      - "9000:9000"
+       volumes:
+         - 'SonarQube_data:/opt/SonarQube/data'
+         - 'SonarQube_extensions:/opt/SonarQube/extensions'
+       - 'SonarQube_logs:/opt/SonarQube/logs'
+    nexus:
+        image: sonatype/nexus3
+        ports:
+         - "8081:8081"
+        volumes:
+         - 'nexus-data:/nexus-data'
 
 
   spring_app:
