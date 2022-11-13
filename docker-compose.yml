@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   mysqldb:
-    container_name: mysqldb
+    container_name: mysqldb1
     image: mysql:latest
     volumes:
       - mysql_container:/var/lib/mysql:rw
@@ -11,14 +11,14 @@ services:
       - 3306:3306
     environment:
 
-       MYSQL_DATABASE: achat-db
+       MYSQL_DATABASE: 'achat-db'
        MYSQL_ALLOW_EMPTY_PASSWORD: 1
 
 
   spring_app:
     depends_on:
-      - mysqldb
-    image: oumad/achat-1.1
+      - mysqldb1
+    image: oumad/achat-1.1:78
     ports:
       - 8089:8089
     restart: always
