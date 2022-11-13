@@ -16,7 +16,7 @@ services:
    
   spring_app:
     depends_on:
-      - mysqldb
+      - mysqldb1
     image: oumad/achat-1.1:78
     ports:
       - 8089:8089
